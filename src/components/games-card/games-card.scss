@@ -1,0 +1,24 @@
+@use "../../scss/" as *;
+
+
+.game-card {
+    
+    .game-image {
+        height: 240px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 8px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        transform: translateZ(-10px) scale(1.02);
+        transition-duration: .5s;
+        color: $main-color;
+    }
+
+    .title {
+        @include flex (center, center);
+        padding: 20px;
+    }
+}
