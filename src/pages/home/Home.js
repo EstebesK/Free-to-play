@@ -4,11 +4,14 @@ import { gamesApi } from './../../api/api';
 
 const Home = () => {
 
-    const [games, setGames] = React.useState()
+    const [games, setGames] = React.useState();
+    const [loading, setLoading] = React.useState(false);
 
     const fetchTopGames = async () => {
+        setLoading(true)
         const data = await gamesApi.getSortedGamesList('popularity');
         setGames(data)
+        setLoading(false)
     };
 
     React.useEffect(() => {
@@ -22,7 +25,7 @@ const Home = () => {
                     <h1>
                         Top Games
                     </h1>
-                    <GamesGrid games={games} />
+                    <GamesGrid games={games} loading={loading} />
                 </div>
             </div>
         </div>

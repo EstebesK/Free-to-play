@@ -5,11 +5,9 @@ import { OutlineButton } from './../button/Button';
 import './games-grid.scss';
 
 
-const GamesGrid = ({ games }) => {
+const GamesGrid = ({ games, loading }) => {
 
     const step = 9;
-
-    const [loading, setLoading] = React.useState(false)
 
     const totalPage = Math.ceil(games?.lenght / step)
     const [page, setPage] = useState(1)

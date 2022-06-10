@@ -8,7 +8,6 @@ const Header = () => {
 
   const headerRef = React.useRef(null);
 
-
   React.useEffect(() => {
     const shrinkHeader = () => {
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
