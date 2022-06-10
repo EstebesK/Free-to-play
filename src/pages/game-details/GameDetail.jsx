@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router';
+import Loading from '../../components/loading/Loading';
 import { gamesApi } from './../../api/api';
 import './game-detail.scss';
 
@@ -8,21 +9,22 @@ const GameDetail = () => {
   const { id } = useParams();
 
   const [item, setItem] = React.useState()
+  const [loading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
     const getDetail = async () => {
+      setLoading(true)
       const data = await gamesApi.detail(id);
       setItem(data);
       window.scrollTo(0, 0);
+      setLoading(false)
     }
     getDetail();
   }, [id]);
 
-  console.log(item)
-
   return (
     <>
-      {item &&
+      {loading ? <Loading /> : item &&
         <div className='content'>
           <div className='container'>
             <div className='game-detail'>

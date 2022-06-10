@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GamesCard from '../games-card/GamesCard';
+import Loading from '../loading/Loading';
 import { OutlineButton } from './../button/Button';
 import './games-grid.scss';
 
@@ -7,6 +8,8 @@ import './games-grid.scss';
 const GamesGrid = ({ games }) => {
 
     const step = 9;
+
+    const [loading, setLoading] = React.useState(false)
 
     const totalPage = Math.ceil(games?.lenght / step)
     const [page, setPage] = useState(1)
@@ -22,7 +25,7 @@ const GamesGrid = ({ games }) => {
             <div className="section mb-3" />
             <div className="game-grid">
                 {
-                    games && gamesPortion.map((game, i) => <GamesCard key={i} game={game} />)
+                    loading ? <Loading /> : games && gamesPortion.map((game, i) => <GamesCard key={i} game={game} />)
                 }
             </div>
             {page !== totalPage &&
