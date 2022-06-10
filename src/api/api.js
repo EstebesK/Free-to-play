@@ -4,7 +4,7 @@ const axiosInstance = axios.create({
     baseURL: `https://free-to-play-games-database.p.rapidapi.com/api/`,
     headers: {
         'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com',
-        'x-rapidapi-key': '9601f11a60mshb96418aa9153e9ap14718fjsn1cfa6090f566'
+        'x-rapidapi-key': process.env.REACT_APP_API_KEY
     }
 })
 
